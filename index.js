@@ -1,21 +1,31 @@
 
 var trainingtype = "strenght";
+var nextdayvar = 0;
 
 
 const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
 const d = new Date();
 let day = weekday[d.getDay()];
+console.log(d.getDay());
 document.getElementById("weekday").innerHTML = day;
-console.log(day);
-
 currentDate = new Date();
     startDate = new Date(currentDate.getFullYear(), 0, 1);
     var days = Math.floor((currentDate - startDate) /
         (24 * 60 * 60 * 1000));
 
-    var weekNumber = (Math.ceil(days / 7))+1;
+    var weekNumber = (Math.ceil(days / 7));
 
+
+function todaytraining(){
+  console.log(d.getDay());
+  document.getElementById("weekday").innerHTML = day;
+  currentDate = new Date();
+      startDate = new Date(currentDate.getFullYear(), 0, 1);
+      var days = Math.floor((currentDate - startDate) /
+          (24 * 60 * 60 * 1000));
+  show()
+}
     // Display the calculated result
     console.log("Week number of " + currentDate +
         " is :   " + weekNumber);
@@ -26,47 +36,47 @@ currentDate = new Date();
         } else {
           trainingtype = "hypotraphy";
         }
-
-
-
+show();
+function show(){
 switch(day) {
   case "Sunday":
   document.getElementById("bodypart").innerHTML = "Long Walking";
   document.getElementById("weeknumber").innerHTML = "Weeknumber: " + weekNumber;
   document.getElementById("trainingtype").innerHTML = "Endurance";
     break;
-  case Monday:
+  case "Monday":
   document.getElementById("bodypart").innerHTML = "Legs";
-  if (trainingtype == strenght){
+  document.getElementById("weeknumber").innerHTML = "Weeknumber: " + weekNumber;
+  if (trainingtype == "strenght"){
     document.getElementById("trainingtype").innerHTML = "4-6 Reps";
-  } else if (trainingtype==hypotraphy) {
+  } else if (trainingtype=="hypotraphy") {
     document.getElementById("trainingtype").innerHTML = "8-12Reps";
   }
     break;
-  case Tuesday:
+  case "Tuesday":
   document.getElementById("bodypart").innerHTML = "Judo";
   document.getElementById("trainingtype").innerHTML = "and Sauna";
     break;
-  case Wednesday:
+  case "Wednesday":
   document.getElementById("bodypart").innerHTML = "Upper Body";
-  if (trainingtype == strenght){
+  if (trainingtype == "strenght"){
     document.getElementById("trainingtype").innerHTML = "4-6 Reps";
-  } else if (trainingtype==hypotraphy) {
+  } else if (trainingtype=="hypotraphy") {
     document.getElementById("trainingtype").innerHTML = "8-12Reps";
   }
     break;
-  case Thursday:
+  case "Thursday":
   document.getElementById("bodypart").innerHTML = "Shoulder, Neck, Core";
-  if (trainingtype == strenght){
+  if (trainingtype == "strenght"){
     document.getElementById("trainingtype").innerHTML = "4-6 Reps";
-  } else if (trainingtype==hypotraphy) {
+  } else if (trainingtype=="hypotraphy") {
     document.getElementById("trainingtype").innerHTML = "8-12Reps";
   }
     break;
-  case Friday:
+  case "Friday":
   document.getElementById("bodypart").innerHTML = "Judo";
     break;
-  case Saturday:
+  case "Saturday":
   document.getElementById("bodypart").innerHTML = "Planche";
   if (trainingtype == strenght){
     document.getElementById("trainingtype").innerHTML = "Reps";
@@ -77,4 +87,5 @@ switch(day) {
 
   default:
     // code block
+}
 }

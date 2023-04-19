@@ -1,13 +1,14 @@
-
+//Variables
 var trainingtype = "strenght";
 var nextdayvar = 0;
 
-
+//Constants
 const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-
 const d = new Date();
 let day = weekday[d.getDay()];
-console.log(d.getDay());
+
+// Getting Day
+//console.log(d.getDay());
 document.getElementById("weekday").innerHTML = day;
 currentDate = new Date();
     startDate = new Date(currentDate.getFullYear(), 0, 1);
@@ -16,7 +17,7 @@ currentDate = new Date();
 
     var weekNumber = (Math.ceil(days / 7));
 
-
+// Showing Day in Title
 function todaytraining(){
   console.log(d.getDay());
   document.getElementById("weekday").innerHTML = day;
@@ -37,6 +38,8 @@ function todaytraining(){
           trainingtype = "hypotraphy";
         }
 show();
+
+//Funktion to show day in connection to the right Training.
 function show(){
 switch(day) {
   case "Sunday":
